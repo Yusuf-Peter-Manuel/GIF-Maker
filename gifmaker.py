@@ -24,8 +24,7 @@ def main():
             target_folder = target_folder + ".zip"
         # Path doesn't lead to either a Folder or a ZIP file
         else:
-            print(f"'{target_folder}' folder or ZIP file cannot be found.")
-            return 1
+            raise SystemExit(f"'{target_folder}' folder or ZIP file cannot be found.")
 
     # Set a Default Name for the Output Folder if not Provided
     if output_folder == None:
@@ -47,7 +46,7 @@ def main():
         except shutil.ReadError as sre:
             raise SystemExit(f"Archive '{target_folder}' is not a valid archive. '{sre}'")
         except Exception as e:
-            print(f"An unknown error occurred. '{e}'")
+            raise SystemExit(f"An unknown error occurred. '{e}'")
 
     # Add all Image Names into a List
     image_names = sorted(glob.glob(os.path.splitext(target_folder)[0] + "/*")) # remove possible extension in case one was supplied, e.g., (.zip)
@@ -59,8 +58,7 @@ def main():
         for name in image_names:
             images.append(iio.imread(name)) # e.g., JPEG/JPG, PNG, WEBG. Refer to ImageIO's documentation for supported file types, some may require additional libraries
     except Exception as e:
-        print(f"Folder or Uncompressed Folder can only have images in it. \nFull Message:\n'{e}'")
-        return 1
+        raise SystemExit(f"Folder or Uncompressed Folder can only have images in it. \nFull Message:\n'{e}'")
 
     # Create GIF
     print("Creating GIF...")
