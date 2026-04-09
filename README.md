@@ -11,8 +11,7 @@ A simple Python CLI tool that turns a folder of images into an animated GIF usin
 * ImageIO, NumPy, Pillow 8.3.2+
 
 ## Project Installation
-Use [Git](https://git-scm.com/install/), or a package manager of your choice, e.g., [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/) for Windows, APT for various Linux Distributions (Debian, Ubuntu, and Linux Mint), and [Brew](https://brew.sh/) for MacOS. 
-
+Using Git.
 ```
 git clone htps://github.com/Yusuf-Peter-Manuel/GIF-Maker.git <custom-folder-name>
 ```
